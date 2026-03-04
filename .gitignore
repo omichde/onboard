@@ -1,0 +1,12 @@
+# OS X
+.DS_Store
+*.icloud
+
+# Xcode
+build/
+*.pbxuser
+!default.pbxuser
+*/xcuserdata/
+xcuserdata/
+*.xccheckout
+DerivedData
