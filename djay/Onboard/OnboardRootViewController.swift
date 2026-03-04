@@ -24,6 +24,7 @@ class OnboardRootViewController: UIViewController {
 	@IBOutlet weak var pagesContainer: UIView!
 	@IBOutlet weak var pageIndicator: UIPageControl!
 	
+	private var animator: Animator?
 	private var bag = Set<AnyCancellable>()
 	
 	override func viewDidLoad() {
@@ -34,7 +35,25 @@ class OnboardRootViewController: UIViewController {
 		pagesViewController.embed(into: pagesContainer)
 		
 		pageIndicator.numberOfPages = onboard.pageCount
-		
+		animator = Animator(
+			progress: onboard.progressPublisher,
+			view: logoView,
+			steps: [
+				AnimatorStep(
+					progress: 0,
+					transform: .identity,
+					alpha: 1),
+				AnimatorStep(
+					progress: 1,
+					transform: CGAffineTransform(translationX: 0, y: -140),
+					alpha: 1),
+				AnimatorStep(
+					progress: 2,
+					transform: CGAffineTransform(translationX: 0, y: -140).scaledBy(x: 0.1, y: 0.1),
+					alpha: 0)
+			]
+		)
+
 		// adjust the step button title and pager depending on the step
 		onboard.stepPublisher
 			.removeDuplicates()
