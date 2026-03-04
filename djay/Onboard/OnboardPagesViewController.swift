@@ -19,7 +19,8 @@ class OnboardPagesViewController: UIViewController {
 	
 	var onboard: Onboard!
 	
-	private lazy var pages: [OnboardContentViewController] = []
+	private lazy var pages: [OnboardContentViewController] =
+		[OnboardWelcomeViewController.instantiate(onboard: onboard)]
 
 	// To prevent some jitter during scroll interaction.
 	private static let barrierOffsetEpsilon: CGFloat = 0.5

@@ -8,11 +8,15 @@
 import UIKit
 
 
+/// The base class for all content/pages view controllers.
+/// All need `Onboard` but keep their content isolated in their own XIB.
 class OnboardContentViewController: UIViewController {
 	var onboard: Onboard!
 }
 
 extension OnboardContentViewController {
+	// Create a view controller from its type name and set up
+	// the model as early as possible.
 	class func instantiate(onboard: Onboard) -> Self {
 		let resolvedBundle = Bundle(for: self)
 		let resolvedNibName = String(describing: self)

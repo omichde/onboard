@@ -11,10 +11,10 @@ import Combine
 
 /// The root view controller, starting the whole onboarding flow.
 /// It owns the `Onboard` model, embeds the `OnboardPagesViewController` and
-/// controls the "global" views, which are visible on top of all the specialized pages and
-/// their view controllers.
+/// controls the "global" views (logo, step button, page indicator),
+/// which are visible on top of all the specialized pages and their view controllers.
 /// Visually the safe areas of the root VC will embed the scroll view, which
-/// is responsible to embed all pages accordingly.
+/// is later responsible to embed all pages accordingly.
 class OnboardRootViewController: UIViewController {
 	
 	let onboard = Onboard()
