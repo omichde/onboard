@@ -20,6 +20,8 @@ extension OnboardStep {
 			OnboardWelcomeViewController.self
 		case .mix:
 			OnboardMixViewController.self
+		case .skill:
+			OnboardSkillViewController.self
 		default:
 			OnboardContentViewController.self
 		}
