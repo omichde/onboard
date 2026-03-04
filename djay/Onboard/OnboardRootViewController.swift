@@ -18,6 +18,7 @@ import Combine
 class OnboardRootViewController: UIViewController {
 	
 	let onboard = Onboard()
+	private static let djayURL = URL(string: "djay://")
 	
 	@IBOutlet weak var logoView: UIImageView!
 	@IBOutlet weak var stepButton: UIButton!
@@ -84,12 +85,20 @@ class OnboardRootViewController: UIViewController {
 	}
 	
 	@IBAction func step() {
+		guard onboard.step != .final else {
+			// at the end, launch the real djay app
+			if let url = Self.djayURL,
+				 UIApplication.shared.canOpenURL(url) {
+				UIApplication.shared.open(url)
+			}
+			return
+		}
 		onboard.setProgress(onboard.progress + 1, animated: true)
 	}
 	
 	@IBAction func selectPage() {
 		onboard.setProgress(Float(pageIndicator.currentPage), animated: true)
-		// Although this is called on `.valueChanged`, resetting the value directly has no effect.
+		// meh: although this is called on `.valueChanged` of the pageIndicator, resetting the value directly has no effect.
 		// Dispatching to the next UIKit event loop is required for a proper update.
 		// Why reset? If the user tries to step past the skill barrier,
 		// the control allows it, but `onboard` remains the source of truth.
