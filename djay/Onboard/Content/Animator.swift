@@ -47,8 +47,7 @@ class Animator {
 		view.alpha = CGFloat(self.steps[0].alpha)
 		
 		self.cancellable = progress.sink { [weak self] progress in
-			guard let self else { return }
-			self.applyProgress(progress)
+			self?.applyProgress(progress)
 		}
 	}
 	

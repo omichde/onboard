@@ -63,11 +63,9 @@ extension Onboard {
 	}
 
 	/// Publisher for listening to progress changes.
-	/// It removes duplicates and publishes on main thread.
 	var progressPublisher: AnyPublisher<Float, Never> {
 		progressSubject
 			.removeDuplicates()
-			.receive(on: RunLoop.main)
 			.eraseToAnyPublisher()
 	}
 
@@ -78,7 +76,6 @@ extension Onboard {
 	}
 
 	/// Publisher for listening to step changes.
-	/// It removes duplicates and publishes on main thread.
 	var stepPublisher: AnyPublisher<OnboardStep, Never> {
 		progressPublisher
 			.map { [weak self] progress in
@@ -87,7 +84,6 @@ extension Onboard {
 				return OnboardStep(rawValue: value) ?? .welcome
 			}
 			.removeDuplicates()
-			.receive(on: RunLoop.main)
 			.eraseToAnyPublisher()
 	}
 }
@@ -105,7 +101,6 @@ extension Onboard {
 	var skillPublisher: AnyPublisher<OnboardSkill?, Never> {
 		skillSubject
 			.removeDuplicates()
-			.receive(on: RunLoop.main)
 			.eraseToAnyPublisher()
 	}
 	
