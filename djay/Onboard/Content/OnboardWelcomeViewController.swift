@@ -38,7 +38,15 @@ class OnboardWelcomeViewController: OnboardContentViewController {
 					alpha: 0)
 			]
 		)
+
+		// if it appears for the first time, fade in the welcome label
+		onboard.progress = -0.5
 	}
 
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		onboard.setProgress(0, animated: true)
+	}
 }
 
