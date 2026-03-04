@@ -9,17 +9,18 @@ import Foundation
 import Combine
 
 
-
+// The model holding the state/progress of the onboarding flow.
+// It is meant as the source of truth for the onboarding flow and
+// its publishers allows all participants to react on it easily.
 class Onboard {
 	
-	/// Number of pages.
+	/// Total number of pages.
 	var pageCount = 0
 
 	/// Index for the page for which a skill is needed.
 	var skillBarrierIndex = 0
 
-	/// The current progress withing the onboarding flow.
-	/// [0...N] with N = pageCount - 1
+	/// Subject for the current progress withing the onboarding flow.
 	private let progressSubject = CurrentValueSubject<Float, Never>(0)
 
 	/// Subject to hold the current skill, nil if undecided.
@@ -71,7 +72,6 @@ extension Onboard {
 	}
 
 	/// The current `OnboardStep`, read only.
-	/// Derived from `progress`.
 	var step: OnboardStep {
 		let value = max(0, min (Int(progress.rounded()), self.pageCount - 1))
 		return OnboardStep(rawValue: value) ?? .welcome
@@ -118,7 +118,7 @@ extension Onboard {
 
 extension Onboard {
 	private func canApplyProgress(_ value: Float) -> Bool {
-		skill != nil || value <= Float(skillBarrierIndex)
+		!isSkillBarrierActive || value <= Float(skillBarrierIndex)
 	}
 
 	@discardableResult
@@ -131,6 +131,9 @@ extension Onboard {
 
 // MARK: Animate progress changes
 
+// If we want to animate the progress changes by code, Combine has no way to express
+// that easily. A `Timer.publish` for 1/60 of a frame should suffice to animate this smoothly,
+// but a CADisplayLink could work here as well.
 extension Onboard {
 	private static let progressAnimationDuration: TimeInterval = 0.2
 	private static let progressAnimationFrameInterval: TimeInterval = 1.0 / 60.0
@@ -140,7 +143,11 @@ extension Onboard {
 		let start = progressSubject.value
 		
 		let startTime = Date.timeIntervalSinceReferenceDate
-		progressAnimationCancellable = Timer.publish(every: Self.progressAnimationFrameInterval, on: .main, in: .common)
+		progressAnimationCancellable = Timer
+			.publish(
+				every: Self.progressAnimationFrameInterval,
+				on: .main,
+				in: .common)
 			.autoconnect()
 			.prepend(Date())
 			.sink { [weak self] _ in
@@ -148,7 +155,7 @@ extension Onboard {
 				
 				let elapsed = Date.timeIntervalSinceReferenceDate - startTime
 				let rawTime = min(max(elapsed / Self.progressAnimationDuration, 0), 1)
-				let easedTime = self.easeInOut(rawTime)
+				let easedTime = rawTime.easeInOut()
 				let interpolatedProgress = start + Float(easedTime) * (end - start)
 				guard self.applyProgressIfAllowed(interpolatedProgress) else {
 					self.stopProgressAnimation()
@@ -165,11 +172,13 @@ extension Onboard {
 		progressAnimationCancellable?.cancel()
 		progressAnimationCancellable = nil
 	}
-	
-	private func easeInOut(_ t: TimeInterval) -> TimeInterval {
-		if t < 0.5 {
-			return 2 * t * t
+}
+
+fileprivate extension TimeInterval {
+	func easeInOut() -> TimeInterval {
+		if self < 0.5 {
+			return 2 * self * self
 		}
-		return 1 - pow(-2 * t + 2, 2) / 2
+		return 1 - pow(-2 * self + 2, 2) / 2
 	}
 }
