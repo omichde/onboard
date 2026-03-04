@@ -15,7 +15,14 @@ enum OnboardStep: Int, CaseIterable {
 extension OnboardStep {
 	/// The view controller type for each page.
 	var pageClass: OnboardContentViewController.Type {
-		OnboardContentViewController.self
+		switch self {
+		case .welcome:
+			OnboardWelcomeViewController.self
+		case .mix:
+			OnboardMixViewController.self
+		default:
+			OnboardContentViewController.self
+		}
 	}
 	
 	/// The button title for each pages.
