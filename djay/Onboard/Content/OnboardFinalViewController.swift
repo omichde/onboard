@@ -8,7 +8,7 @@
 import UIKit
 
 
-// The forth screen contains the final content of the onboarding flow.
+// The fourth screen contains the final content of the onboarding flow.
 class OnboardFinalViewController: OnboardContentViewController {
 	
 }

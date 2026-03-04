@@ -7,7 +7,7 @@
 
 import UIKit
 
-// The second page contains 3 images.
+// The second page contains three images.
 class OnboardMixViewController: OnboardContentViewController {
 	
 	@IBOutlet weak var heroView: UIImageView!

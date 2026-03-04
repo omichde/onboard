@@ -13,8 +13,8 @@ import Combine
 /// It owns the `Onboard` model, embeds the `OnboardPagesViewController` and
 /// controls the "global" views (logo, step button, page indicator),
 /// which are visible on top of all the specialized pages and their view controllers.
-/// Visually the safe areas of the root VC will embed the scroll view, which
-/// is later responsible to embed all pages accordingly.
+/// The root VC's safe area contains the scroll view, which is then responsible
+/// for embedding all page view controllers.
 class OnboardRootViewController: UIViewController {
 	
 	let onboard = Onboard()
@@ -54,7 +54,7 @@ class OnboardRootViewController: UIViewController {
 			]
 		)
 
-		// adjust the step button title and pager depending on the step
+		// Update the step button title and pager for the current step.
 		onboard.stepPublisher
 			.removeDuplicates()
 			.sink { [weak self] step in
@@ -63,12 +63,12 @@ class OnboardRootViewController: UIViewController {
 			}
 			.store(in: &bag)
 		
-		// adjust the step button according to the progress
+		// Update the step button according to the current progress.
 		onboard.progressPublisher.combineLatest(onboard.skillPublisher)
 			.sink { [weak self] (progress, skill) in
 				guard let self else { return }
 				
-				// disabled continue button if no skill was selected
+				// Disable the Continue button if no skill is selected.
 				let isEnabled = if !onboard.isSkillBarrierActive {
 					true
 				} else {
@@ -86,10 +86,10 @@ class OnboardRootViewController: UIViewController {
 	
 	@IBAction func selectPage() {
 		onboard.setProgress(Float(pageIndicator.currentPage), animated: true)
-		// meh: although this is called on `.valueChanged`, resetting the value directly has no effect.
-		// We must dispatch it to the next event loop in UIKit for proper updates.
-		// Why the reset? If the user tries to step ahead beyond the skill barrier,
-		// the control does allow it, but `onboard` holds the truth.
+		// Although this is called on `.valueChanged`, resetting the value directly has no effect.
+		// Dispatching to the next UIKit event loop is required for a proper update.
+		// Why reset? If the user tries to step past the skill barrier,
+		// the control allows it, but `onboard` remains the source of truth.
 		DispatchQueue.main.async { [weak self] in
 			guard let self else { return }
 			self.pageIndicator.currentPage = self.onboard.step.rawValue

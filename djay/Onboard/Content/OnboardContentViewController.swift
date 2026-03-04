@@ -9,7 +9,7 @@ import UIKit
 
 
 /// The base class for all content/pages view controllers.
-/// All need `Onboard` but keep their content isolated in their own XIB.
+/// All pages need `Onboard`, but each keeps its content isolated in its own XIB.
 class OnboardContentViewController: UIViewController {
 	var onboard: Onboard!
 }

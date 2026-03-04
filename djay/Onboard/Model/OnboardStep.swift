@@ -27,7 +27,7 @@ extension OnboardStep {
 		}
 	}
 	
-	/// The button title for each pages.
+	/// The button title for each page.
 	var stepTitle: String {
 		switch self {
 		case .welcome, .mix, .skill:

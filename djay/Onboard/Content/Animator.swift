@@ -9,8 +9,8 @@ import UIKit
 import Combine
 
 
-// To transition UIViews between pages, this small helper class drives a UIView
-// transform and alpha according to its progress value, define in a `AnimatorStep`.
+// To transition UIViews between pages, this helper class drives a UIView's
+// transform and alpha according to its progress values, defined in an `AnimatorStep`.
 //
 class Animator {
 	
@@ -20,7 +20,7 @@ class Animator {
 	// The view in question we animate.
 	let view: UIView
 	
-	// The steps/keyframe with define the transition.
+	// The steps/keyframes that define the transition.
 	let steps: [AnimatorStep]
 
 	// The currently active segment.
@@ -65,7 +65,7 @@ class Animator {
 		let lastSegmentIndex = steps.count - 2
 		guard lastSegmentIndex >= 0 else { return nil }
 
-		// assuming sorted step, we use the start of the first step or...
+		// Assuming sorted steps, use the start of the first step or...
 		if progress <= steps[0].progress {
 			return (index: 0, fraction: 0)
 		}

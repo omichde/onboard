@@ -9,12 +9,12 @@ import UIKit
 import Combine
 
 
-/// The pages the user can swipe through are embedded into a horizontal
-/// UIScrollView, its setup and handling is the core of this view controller.
-/// One could create and embed this VC in the Onboard.storyboard, but and empty scroll view
-/// confuses IB and produces useless warnings.
-/// Visually, the borderless scroll view creates pages, each of the same size as the scroll
-/// view and placed horizontally next to each other.
+/// The pages the user can swipe through are embedded in a horizontal
+/// `UIScrollView`; configuring and managing that view is the core of this controller.
+/// This VC could be embedded in `Onboard.storyboard`, but an empty scroll view
+/// confuses Interface Builder and produces useless warnings.
+/// Visually, the borderless scroll view creates pages of equal size, placed
+/// next to each other horizontally.
 class OnboardPagesViewController: UIViewController {
 	
 	var onboard: Onboard!
@@ -30,18 +30,18 @@ class OnboardPagesViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		// set up scroll view and its page containers
+		// Set up the scroll view and its page containers.
 		setupScrollView()
 		embedPages()
 		view.layoutIfNeeded()
 
-		// adjust onboard model
+		// Update the onboarding model.
 		onboard.pageCount = pages.count
 		onboard.skillBarrierIndex = OnboardStep.skill.rawValue
 		applyProgress(onboard.progress)
 
-		// scroll to appropriate page depending on progress,
-		// but only if we do not scroll interactively!
+		// Sync to the appropriate page for the current progress,
+		// but only when scrolling is not interactive.
 		onboard.progressPublisher
 			.sink { [weak self] progress in
 				guard let self,

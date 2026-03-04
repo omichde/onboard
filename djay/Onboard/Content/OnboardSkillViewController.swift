@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-// The third screen asks the user for his skill level.
+// The third screen asks the user for their skill level.
 // This is a barrier screen, the user must not be able to progress further without an answer.
 class OnboardSkillViewController: OnboardContentViewController {
 
@@ -54,9 +54,9 @@ private extension OnboardSkillViewController {
 		}
 	}
 
-	// Since iOS 15, the appearance of a button can be tweaked by its configuration
-	// mostly so this creates one according to the design specs with a left-hand
-	// custom icon for the selection state, the left-aligned text label and a border.
+	// Since iOS 15, button appearance can be customized with `UIButton.Configuration`.
+	// This creates a configuration matching the design spec: a left-side selection icon,
+	// a left-aligned title, and a border.
 	func configure(button: UIButton, selected: Bool) {
 		var config = button.configuration ?? .gray()
 		if config.title == nil {

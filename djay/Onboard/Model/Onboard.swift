@@ -11,7 +11,7 @@ import Combine
 
 // The model holding the state/progress of the onboarding flow.
 // It is meant as the source of truth for the onboarding flow and
-// its publishers allows all participants to react on it easily.
+// its publishers allow all participants to react to it easily.
 class Onboard {
 	
 	/// Total number of pages.
@@ -20,13 +20,13 @@ class Onboard {
 	/// Index for the page for which a skill is needed.
 	var skillBarrierIndex = 0
 
-	/// Subject for the current progress withing the onboarding flow.
+	/// Subject for the current progress within the onboarding flow.
 	private let progressSubject = CurrentValueSubject<Float, Never>(0)
 
 	/// Subject to hold the current skill, nil if undecided.
 	private let skillSubject = CurrentValueSubject<OnboardSkill?, Never>(nil)
 
-	/// Handle for animating progress changed.
+	/// Handle for animating progress changes.
 	private var progressAnimationCancellable: AnyCancellable?
 		
 	deinit {
@@ -91,7 +91,7 @@ extension Onboard {
 // MARK: public skill API
 
 extension Onboard {
-	/// Optional Skill level, nil if undecided.
+	/// Optional skill level; `nil` if undecided.
 	var skill: OnboardSkill? {
 		get { skillSubject.value }
 		set { skillSubject.send(newValue) }
