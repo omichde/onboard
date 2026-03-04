@@ -22,8 +22,8 @@ extension OnboardStep {
 			OnboardMixViewController.self
 		case .skill:
 			OnboardSkillViewController.self
-		default:
-			OnboardContentViewController.self
+		case .final:
+			OnboardFinalViewController.self
 		}
 	}
 	
