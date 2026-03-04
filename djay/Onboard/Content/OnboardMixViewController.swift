@@ -17,67 +17,81 @@ class OnboardMixViewController: OnboardContentViewController {
 	private var heroAnimator: Animator?
 	private var mixAnimator: Animator?
 	private var adaAnimator: Animator?
+	private var lastSize: CGSize = .zero
+	
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		
+		guard view.bounds.size != lastSize else { return }
+		lastSize = view.bounds.size
 
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-
-		guard heroAnimator == nil else { return }
 		heroAnimator = Animator(
 			progress: onboard.progressPublisher,
 			view: heroView,
-			steps: [
-				AnimatorStep(
-					progress: 0.5,
-					transform: CGAffineTransform(translationX: -view.bounds.width * 0.5, y: 30).scaledBy(x: 0.1, y: 0.1),
-					alpha: 0),
-				AnimatorStep(
-					progress: 1,
-					transform: .identity,
-					alpha: 1),
-				AnimatorStep(
-					progress: 1.5,
-					transform: CGAffineTransform(translationX: view.bounds.width * 0.5, y: 30).scaledBy(x: 0.1, y: 0.1),
-					alpha: 0)
-			]
+			keyframes: [0.5, 1, 1.5],
+			stateProvider: { progress, view in
+				let defaultState = Animator.State(transform: .identity, alpha: 1)
+				guard let pageWidth = view.superview?.bounds.width
+				else { return defaultState }
+				switch progress {
+				case let p where p < 1:
+					return Animator.State(
+						transform: CGAffineTransform(translationX: pageWidth * -0.5, y: 30).scaledBy(x: 0.1, y: 0.1),
+						alpha: 0)
+				case let p where p > 1:
+					return Animator.State(
+						transform: CGAffineTransform(translationX: pageWidth * 0.5, y: 30).scaledBy(x: 0.1, y: 0.1),
+						alpha: 0)
+				default:
+					return defaultState
+				}
+			}
 		)
 
 		mixAnimator = Animator(
 			progress: onboard.progressPublisher,
 			view: mixLabel,
-			steps: [
-				AnimatorStep(
-					progress: 0.6,
-					transform: CGAffineTransform(translationX: -view.bounds.width * 0.4, y: 30).scaledBy(x: 0.1, y: 0.1),
-					alpha: 0),
-				AnimatorStep(
-					progress: 1,
-					transform: .identity,
-					alpha: 1),
-				AnimatorStep(
-					progress: 1.4,
-					transform: CGAffineTransform(translationX: view.bounds.width * 0.4, y: 30).scaledBy(x: 0.1, y: 0.1),
-					alpha: 0)
-			]
+			keyframes: [0.6, 1, 1.4],
+			stateProvider: { progress, view in
+				let pageWidth = view.superview?.bounds.width ?? view.bounds.width
+				switch progress {
+				case ..<1:
+					return Animator.State(
+						transform: CGAffineTransform(translationX: pageWidth * -0.4, y: 30).scaledBy(x: 0.1, y: 0.1),
+						alpha: 0)
+				case 1:
+					return Animator.State(
+						transform: .identity,
+						alpha: 1)
+				default:
+					return Animator.State(
+						transform: CGAffineTransform(translationX: pageWidth * 0.4, y: 30).scaledBy(x: 0.1, y: 0.1),
+						alpha: 0)
+				}
+			}
 		)
 
 		adaAnimator = Animator(
 			progress: onboard.progressPublisher,
 			view: adaView,
-			steps: [
-				AnimatorStep(
-					progress: 0.7,
-					transform: CGAffineTransform(translationX: -view.bounds.width * 0.3, y: 30).scaledBy(x: 0.1, y: 0.1),
-					alpha: 0),
-				AnimatorStep(
-					progress: 1,
-					transform: .identity,
-					alpha: 1),
-				AnimatorStep(
-					progress: 1.3,
-					transform: CGAffineTransform(translationX: view.bounds.width * 0.3, y: 30).scaledBy(x: 0.1, y: 0.1),
-					alpha: 0)
-			]
+			keyframes: [0.7, 1, 1.3],
+			stateProvider: { progress, view in
+				let pageWidth = view.superview?.bounds.width ?? view.bounds.width
+				switch progress {
+				case ..<1:
+					return Animator.State(
+						transform: CGAffineTransform(translationX: pageWidth * -0.3, y: 30).scaledBy(x: 0.1, y: 0.1),
+						alpha: 0)
+				case 1:
+					return Animator.State(
+						transform: .identity,
+						alpha: 1)
+				default:
+					return Animator.State(
+						transform: CGAffineTransform(translationX: pageWidth * 0.3, y: 30).scaledBy(x: 0.1, y: 0.1),
+						alpha: 0)
+				}
+			}
 		)
 	}
-
 }

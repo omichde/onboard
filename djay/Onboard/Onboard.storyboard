@@ -75,7 +75,7 @@
                         <viewLayoutGuide key="safeArea" id="fZz-qq-LDW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="fZz-qq-LDW" firstAttribute="trailing" secondItem="g2G-s8-qgE" secondAttribute="trailing" id="1je-lC-2hk"/>
+                            <constraint firstItem="bpN-FR-D1d" firstAttribute="trailing" secondItem="g2G-s8-qgE" secondAttribute="trailing" id="1je-lC-2hk"/>
                             <constraint firstItem="fZz-qq-LDW" firstAttribute="top" secondItem="g2G-s8-qgE" secondAttribute="top" id="53a-3V-f89"/>
                             <constraint firstItem="fZz-qq-LDW" firstAttribute="bottom" secondItem="0VS-jK-9r8" secondAttribute="bottom" id="6EO-FM-B2l"/>
                             <constraint firstItem="fZz-qq-LDW" firstAttribute="bottom" secondItem="g2G-s8-qgE" secondAttribute="bottom" id="HW7-8l-hlS"/>
@@ -86,9 +86,9 @@
                             <constraint firstItem="fZz-qq-LDW" firstAttribute="trailing" secondItem="bpN-FR-D1d" secondAttribute="trailing" id="Vvj-Xz-zOm"/>
                             <constraint firstItem="bpN-FR-D1d" firstAttribute="leading" secondItem="fZz-qq-LDW" secondAttribute="leading" id="ceP-xp-kVu"/>
                             <constraint firstItem="fZz-qq-LDW" firstAttribute="bottom" secondItem="bpN-FR-D1d" secondAttribute="bottom" id="dHA-qV-kYv"/>
-                            <constraint firstItem="0VS-jK-9r8" firstAttribute="leading" secondItem="fZz-qq-LDW" secondAttribute="leading" id="dfv-wk-id9"/>
-                            <constraint firstItem="fZz-qq-LDW" firstAttribute="trailing" secondItem="0VS-jK-9r8" secondAttribute="trailing" id="lAc-RX-yPH"/>
-                            <constraint firstItem="g2G-s8-qgE" firstAttribute="leading" secondItem="fZz-qq-LDW" secondAttribute="leading" id="m4P-Uo-WIP"/>
+                            <constraint firstItem="0VS-jK-9r8" firstAttribute="leading" secondItem="bpN-FR-D1d" secondAttribute="leading" id="dfv-wk-id9"/>
+                            <constraint firstItem="bpN-FR-D1d" firstAttribute="trailing" secondItem="0VS-jK-9r8" secondAttribute="trailing" id="lAc-RX-yPH"/>
+                            <constraint firstItem="g2G-s8-qgE" firstAttribute="leading" secondItem="bpN-FR-D1d" secondAttribute="leading" id="m4P-Uo-WIP"/>
                             <constraint firstAttribute="top" secondItem="Tph-sk-xvc" secondAttribute="top" id="nGx-u6-pDw"/>
                             <constraint firstAttribute="trailing" secondItem="Tph-sk-xvc" secondAttribute="trailing" id="sfb-HZ-wEg"/>
                         </constraints>

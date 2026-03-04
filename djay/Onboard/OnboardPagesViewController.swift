@@ -102,7 +102,6 @@ class OnboardPagesViewController: UIViewController {
 	
 	private func applyProgress(_ progress: Float) {
 		guard !pages.isEmpty, scrollView.bounds.width > 0 else { return }
-		
 		let x = CGFloat(progress) * scrollView.bounds.width		
 		if abs(scrollView.contentOffset.x - x) < Self.barrierOffsetEpsilon { return }
 		

@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <viewController id="CYn-O8-efM" customClass="OnboardMixViewController" customModule="djay_onboard" customModuleProvider="target">
+        <viewController id="CYn-O8-efM" customClass="OnboardMixViewController" customModule="djay" customModuleProvider="target">
             <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ric-Va-A14">
                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,6 +51,10 @@ Favorite Music
                     <constraint firstItem="3Ve-Zj-jMO" firstAttribute="centerX" secondItem="jZ3-aM-Aec" secondAttribute="centerX" id="w0T-Ac-ntd"/>
                 </constraints>
             </view>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <size key="freeformSize" width="393" height="852"/>
             <connections>
                 <outlet property="adaView" destination="3Ve-Zj-jMO" id="h3l-bb-5Ak"/>
                 <outlet property="heroView" destination="kes-mi-FzA" id="oiS-G4-ugE"/>

@@ -9,10 +9,13 @@ import UIKit
 import Combine
 
 
-// To transition UIViews between pages, this helper class drives a UIView's
-// transform and alpha according to its progress values, defined in an `AnimatorStep`.
-//
 class Animator {
+	struct State {
+		let transform: CGAffineTransform
+		let alpha: CGFloat
+	}
+
+	typealias StateProvider = (_ progress: Float, _ view: UIView) -> State
 	
 	// The incoming progress value.
 	let progress: AnyPublisher<Float, Never>
@@ -20,11 +23,14 @@ class Animator {
 	// The view in question we animate.
 	let view: UIView
 	
-	// The steps/keyframes that define the transition.
-	let steps: [AnimatorStep]
+	// The progress keyframes that define transition segments.
+	let keyframes: [Float]
+
+	// Callback to derive the visual state for a keyframe on demand.
+	let stateProvider: StateProvider
 
 	// The currently active segment.
-	// A segment is the transition between two neighbouring steps.
+	// A segment is the transition between two neighbouring keyframes.
 	private var activeSegmentIndex: Int?
 	
 	// The currently active UIKit animator.
@@ -34,25 +40,43 @@ class Animator {
 	
 	private var cancellable: AnyCancellable?
 	
-	init?(progress: AnyPublisher<Float, Never>, view: UIView, steps: [AnimatorStep]) {
+	init?(
+		progress: AnyPublisher<Float, Never>,
+		view: UIView,
+		keyframes: [Float],
+		stateProvider: @escaping StateProvider
+	) {
 		self.progress = progress
 		self.view = view
-		self.steps = steps.sorted { $0.progress < $1.progress }
+		self.keyframes = keyframes.sorted()
+		self.stateProvider = stateProvider
 		self.activeSegmentIndex = nil
 		self.activeAnimator = nil
 		
 		guard isValid else { return nil }
 		
-		view.transform = self.steps[0].transform
-		view.alpha = CGFloat(self.steps[0].alpha)
-		
-		self.cancellable = progress.sink { [weak self] progress in
-			self?.applyProgress(progress)
-		}
+		self.cancellable = progress
+			.dropFirst()	// we do not want the current value, only those on real changes
+			.sink { [weak self] progress in
+				self?.applyProgress(progress)
+			}
 	}
 	
+	deinit {
+		activeAnimator?.stopAnimation(true)
+	}
+
 	private var isValid: Bool {
-		steps.count >= 2
+		guard keyframes.count >= 2 else { return false }
+		for index in 1..<keyframes.count {
+			guard keyframes[index - 1] < keyframes[index] else { return false }
+		}
+		return true
+	}
+
+	private func applyState(_ state: State) {
+		view.transform = state.transform
+		view.alpha = state.alpha
 	}
 	
 	private func applyProgress(_ progress: Float) {
@@ -62,21 +86,21 @@ class Animator {
 	}
 	
 	private func segment(for progress: Float) -> (index: Int, fraction: CGFloat)? {
-		let lastSegmentIndex = steps.count - 2
+		let lastSegmentIndex = keyframes.count - 2
 		guard lastSegmentIndex >= 0 else { return nil }
 
-		// Assuming sorted steps, use the start of the first step or...
-		if progress <= steps[0].progress {
+		// Assuming sorted keyframes, use the start of the first segment or...
+		if progress <= keyframes[0] {
 			return (index: 0, fraction: 0)
 		}
 		// the end of the last segment for out-of-bounds progress values
-		if progress >= steps[steps.count - 1].progress {
+		if progress >= keyframes[keyframes.count - 1] {
 			return (index: lastSegmentIndex, fraction: 1)
 		}
 		
 		for i in 0...lastSegmentIndex {
-			let start = steps[i].progress
-			let end = steps[i + 1].progress
+			let start = keyframes[i]
+			let end = keyframes[i + 1]
 			guard progress >= start, progress <= end else { continue }
 			
 			let span = end - start
@@ -92,15 +116,16 @@ class Animator {
 		
 		activeAnimator?.stopAnimation(true)
 		
-		let start = steps[segmentIndex]
-		let end = steps[segmentIndex + 1]
-		view.transform = start.transform
-		view.alpha = CGFloat(start.alpha)
+		let startProgress = keyframes[segmentIndex]
+		let endProgress = keyframes[segmentIndex + 1]
+		let startState = stateProvider(startProgress, view)
+		let endState = stateProvider(endProgress, view)
+		applyState(startState)
 		
-		let duration = TimeInterval(end.progress - start.progress)
+		let duration = TimeInterval(endProgress - startProgress)
 		let animator = UIViewPropertyAnimator(duration: duration, curve: .linear) { [weak view] in
-			view?.transform = end.transform
-			view?.alpha = CGFloat(end.alpha)
+			view?.transform = endState.transform
+			view?.alpha = endState.alpha
 		}
 		animator.pausesOnCompletion = true
 		animator.startAnimation()
@@ -110,10 +135,4 @@ class Animator {
 		activeSegmentIndex = segmentIndex
 		activeAnimator = animator
 	}
-}
-
-struct AnimatorStep {
-	let progress: Float
-	let transform: CGAffineTransform
-	let alpha: Float
 }

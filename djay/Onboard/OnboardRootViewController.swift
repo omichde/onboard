@@ -38,20 +38,23 @@ class OnboardRootViewController: UIViewController {
 		animator = Animator(
 			progress: onboard.progressPublisher,
 			view: logoView,
-			steps: [
-				AnimatorStep(
-					progress: 0,
-					transform: .identity,
-					alpha: 1),
-				AnimatorStep(
-					progress: 1,
-					transform: CGAffineTransform(translationX: 0, y: -140),
-					alpha: 1),
-				AnimatorStep(
-					progress: 2,
-					transform: CGAffineTransform(translationX: 0, y: -140).scaledBy(x: 0.1, y: 0.1),
-					alpha: 0)
-			]
+			keyframes: [0, 1, 2],
+			stateProvider: { progress, _ in
+				switch progress {
+				case 0:
+					return Animator.State(
+						transform: .identity,
+						alpha: 1)
+				case 1:
+					return Animator.State(
+						transform: CGAffineTransform(translationX: 0, y: -140),
+						alpha: 1)
+				default:
+					return Animator.State(
+						transform: CGAffineTransform(translationX: 0, y: -140).scaledBy(x: 0.1, y: 0.1),
+						alpha: 0)
+				}
+			}
 		)
 
 		// Update the step button title and pager for the current step.
