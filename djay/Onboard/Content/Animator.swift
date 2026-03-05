@@ -10,13 +10,9 @@ import Combine
 
 
 class Animator {
-	struct State {
-		let transform: CGAffineTransform
-		let alpha: CGFloat
-	}
 
 	typealias StateProvider = (_ progress: Float, _ view: UIView) -> State
-	
+
 	// The incoming progress value.
 	let progress: AnyPublisher<Float, Never>
 	

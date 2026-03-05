@@ -51,9 +51,7 @@ class OnboardRootViewController: UIViewController {
 						transform: CGAffineTransform(translationX: 0, y: view.traitCollection.verticalSizeClass == .compact ? -60 : -140).scaledBy(x: 0.1, y: 0.1),
 						alpha: 0)
 				default:
-					return Animator.State(
-						transform: .identity,
-						alpha: 1)
+					return Animator.State.default
 				}
 			}
 		)

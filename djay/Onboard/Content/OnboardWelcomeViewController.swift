@@ -23,39 +23,33 @@ class OnboardWelcomeViewController: OnboardContentViewController {
 		guard view.bounds.size != lastSize else { return }
 		lastSize = view.bounds.size
 		
-		// Rebuild on size/orientation changes.
 		welcomeAnimator = Animator(
 			progress: onboard.progressPublisher,
 			view: welcomeLabel,
 			keyframes: [-0.5, 0, 0.5],
 			stateProvider: { progress, view in
-				let defaultState = Animator.State(
-					transform: CGAffineTransform(translationX: 0, y: view.traitCollection.verticalSizeClass == .compact ? -180 : -80),
-					alpha: 1
-				)
+				let defaultState = Animator.State(transform: CGAffineTransform(translationX: 0, y: view.traitCollection.verticalSizeClass == .compact ? -180 : -80))
 				
 				// The view should strictly animate in vertical direction only,
 				// but as this view controller is embedded into a scroll view, we need
 				// to compensate the horizontal scroll view movement by inverting the views
-				// x-position. This is based on the page base view width and the views
-				// container width.
+				// x-position.
 				// We could have avoided that calculation by keeping the view outside the
 				// page and place it globally onto the root view controller, but that would
 				// flood the root view with all animations. Furthermore it feels more natural
 				// and better isolated to keep the messageLabel in here.
-				guard let pageWidth = view.parentViewController?.view.bounds.width,
-							let containerWidth = view.superview?.bounds.width
+				guard let pageWidth = view.parentViewController?.view.bounds.width
 				else { return defaultState }
-				let factor = containerWidth / pageWidth
+				let offset = pageWidth * 0.5	// keyframe offset
 
 				switch progress {
 				case let p where p < 0:
 					return Animator.State(
-						transform: CGAffineTransform(translationX: containerWidth / factor * -0.5, y: 0),
+						transform: CGAffineTransform(translationX: -offset, y: 0),
 						alpha: 0)
 				case let p where p > 0:
 					return Animator.State(
-						transform: CGAffineTransform(translationX: containerWidth / factor * 0.5, y: 0),
+						transform: CGAffineTransform(translationX: offset, y: 0),
 						alpha: 0)
 				default:
 					return defaultState
