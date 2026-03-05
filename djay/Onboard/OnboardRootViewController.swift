@@ -25,7 +25,8 @@ class OnboardRootViewController: UIViewController {
 	@IBOutlet weak var pagesContainer: UIView!
 	@IBOutlet weak var pageIndicator: UIPageControl!
 	
-	private var animator: Animator?
+	private var logoAnimator: Animator?
+	private var lastSize: CGSize = .zero
 	private var bag = Set<AnyCancellable>()
 	
 	override func viewDidLoad() {
@@ -36,25 +37,6 @@ class OnboardRootViewController: UIViewController {
 		pagesViewController.embed(into: pagesContainer)
 		
 		pageIndicator.numberOfPages = onboard.pageCount
-		animator = Animator(
-			progress: onboard.progressPublisher,
-			view: logoView,
-			keyframes: [0, 1, 2],
-			stateProvider: { progress, view in
-				switch progress {
-				case 1:
-					return Animator.State(
-						transform: CGAffineTransform(translationX: 0, y: view.traitCollection.verticalSizeClass == .compact ? -60 : -140),
-						alpha: 1)
-				case 2:
-					return Animator.State(
-						transform: CGAffineTransform(translationX: 0, y: view.traitCollection.verticalSizeClass == .compact ? -60 : -140).scaledBy(x: 0.1, y: 0.1),
-						alpha: 0)
-				default:
-					return Animator.State.default
-				}
-			}
-		)
 
 		// Update the step button title and pager for the current step.
 		onboard.stepPublisher
@@ -82,6 +64,39 @@ class OnboardRootViewController: UIViewController {
 			.store(in: &bag)
 	}
 	
+
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		
+		guard view.bounds.size != lastSize else { return }
+		lastSize = view.bounds.size
+
+		// Upon layout/orientation changes, we refresh the onboard state.
+		// This ripples through the onboarding flow, but because the root VC
+		// owns onboard, this should be the origin.
+		onboard.refresh()
+		
+		logoAnimator = Animator(
+			progress: onboard.progressPublisher,
+			view: logoView,
+			keyframes: [0, 1, 2],
+			stateProvider: { progress, view in
+				switch progress {
+				case 1:
+					return Animator.State(
+						transform: CGAffineTransform(translationX: 0, y: view.traitCollection.verticalSizeClass == .compact ? -60 : -140),
+						alpha: 1)
+				case 2:
+					return Animator.State(
+						transform: CGAffineTransform(translationX: 0, y: view.traitCollection.verticalSizeClass == .compact ? -60 : -140).scaledBy(x: 0.1, y: 0.1),
+						alpha: 0)
+				default:
+					return Animator.State.default
+				}
+			}
+		)
+	}
+
 	@IBAction func step() {
 		guard onboard.step != .final else {
 			// at the end, launch the real djay app

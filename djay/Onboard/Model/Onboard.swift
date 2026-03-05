@@ -65,7 +65,6 @@ extension Onboard {
 	/// Publisher for listening to progress changes.
 	var progressPublisher: AnyPublisher<Float, Never> {
 		progressSubject
-			.removeDuplicates()
 			.eraseToAnyPublisher()
 	}
 
@@ -83,8 +82,13 @@ extension Onboard {
 				let value = max(0, min (Int(progress.rounded()), self.pageCount - 1))
 				return OnboardStep(rawValue: value) ?? .welcome
 			}
-			.removeDuplicates()
 			.eraseToAnyPublisher()
+	}
+	
+	func refresh() {
+		// By re-assigning the current value in an animated way, we promote reloading
+		// all listeners and Animators - this is a little unhealthy.
+		setProgress(progress, animated: true)
 	}
 }
 
