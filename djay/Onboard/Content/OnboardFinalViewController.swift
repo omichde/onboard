@@ -59,7 +59,7 @@ private extension OnboardFinalViewController {
 		guard size.width > 0, size.height > 0 else { return }
 
 		starSingleScene.size = size
-		let position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
+		let position = CGPoint(x: size.width * 0.5, y: size.height * 0.5 - 10)
 		let range = CGVector(dx: size.width * 0.5, dy: size.height * 0.5)
 		starSingleEmitter?.position = position
 		starSingleEmitter?.particlePositionRange = range

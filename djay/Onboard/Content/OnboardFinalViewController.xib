@@ -39,52 +39,112 @@
                             <constraint firstItem="asw-ef-l4T" firstAttribute="width" secondItem="Z9w-eP-eSp" secondAttribute="width" id="woe-hP-apc"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlock all PRO-Features" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtw-0q-sch">
-                        <rect key="frame" x="80.333333333333329" y="498" width="232.66666666666669" height="26.333333333333371"/>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                        <color key="textColor" name="primary"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hero-pro" translatesAutoresizingMaskIntoConstraints="NO" id="zBl-MT-Kw3">
-                        <rect key="frame" x="46.666666666666657" y="265.66666666666669" width="300" height="150"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sOi-4v-Fhg" userLabel="1st">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="426"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hero-pro" translatesAutoresizingMaskIntoConstraints="NO" id="zBl-MT-Kw3">
+                                <rect key="frame" x="46.666666666666657" y="202" width="300" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Qgx-T9-rHj"/>
+                                    <constraint firstAttribute="height" constant="150" id="fdU-ya-0yM"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-pro" translatesAutoresizingMaskIntoConstraints="NO" id="chK-CF-861">
+                                <rect key="frame" x="66.666666666666686" y="99" width="260" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="1Cr-E5-Gce"/>
+                                    <constraint firstAttribute="height" constant="100" id="wyB-yb-4st"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="300" id="Qgx-T9-rHj"/>
-                            <constraint firstAttribute="height" constant="150" id="fdU-ya-0yM"/>
+                            <constraint firstItem="zBl-MT-Kw3" firstAttribute="centerX" secondItem="sOi-4v-Fhg" secondAttribute="centerX" id="Kqb-Bf-Dm7"/>
+                            <constraint firstItem="chK-CF-861" firstAttribute="centerY" secondItem="sOi-4v-Fhg" secondAttribute="centerY" multiplier="0.7" id="Les-Ws-ytD"/>
+                            <constraint firstItem="zBl-MT-Kw3" firstAttribute="centerY" secondItem="sOi-4v-Fhg" secondAttribute="centerY" multiplier="1.3" id="ZKh-nO-sWX"/>
+                            <constraint firstItem="chK-CF-861" firstAttribute="centerX" secondItem="sOi-4v-Fhg" secondAttribute="centerX" id="vc9-Hh-MTx"/>
                         </constraints>
-                    </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-pro" translatesAutoresizingMaskIntoConstraints="NO" id="chK-CF-861">
-                        <rect key="frame" x="66.666666666666686" y="163" width="260" height="100"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="260" id="1Cr-E5-Gce"/>
-                            <constraint firstAttribute="height" constant="100" id="wyB-yb-4st"/>
-                        </constraints>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zr2-q9-8ob">
-                        <rect key="frame" x="53" y="544.33333333333337" width="287.33333333333331" height="86.333333333333371"/>
-                        <string key="text">✓ Neural Mix™-Vocals, Instrumentals.
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dsA-2y-Y72" userLabel="2nd">
+                        <rect key="frame" x="0.0" y="426" width="393" height="426"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlock all PRO-Features" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtw-0q-sch">
+                                <rect key="frame" x="80.333333333333329" y="50.666666666666686" width="232.66666666666669" height="26.333333333333329"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <color key="textColor" name="primary"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zr2-q9-8ob">
+                                <rect key="frame" x="53" y="97" width="287.33333333333331" height="86.333333333333314"/>
+                                <string key="text">✓ Neural Mix™-Vocals, Instrumentals.
 ✓ 1000+ Loops, FX and Visuals.
 ✓ Automix - automated DJ-Mixes.
 ✓ On iPhone, iPad, Mac.</string>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                        <color key="textColor" name="Text/Primary"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" name="Text/Primary"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Mtw-0q-sch" firstAttribute="centerY" secondItem="dsA-2y-Y72" secondAttribute="centerY" multiplier="0.3" id="Cdz-OG-SS3"/>
+                            <constraint firstItem="Mtw-0q-sch" firstAttribute="centerX" secondItem="dsA-2y-Y72" secondAttribute="centerX" id="Dkd-Yd-fwx"/>
+                            <constraint firstItem="zr2-q9-8ob" firstAttribute="centerX" secondItem="Mtw-0q-sch" secondAttribute="centerX" id="N5P-Xn-5Hj"/>
+                            <constraint firstItem="Mtw-0q-sch" firstAttribute="centerY" secondItem="dsA-2y-Y72" secondAttribute="centerY" multiplier="0.6" id="SLr-QS-Jli"/>
+                            <constraint firstItem="zr2-q9-8ob" firstAttribute="top" secondItem="Mtw-0q-sch" secondAttribute="bottom" constant="20" id="TVQ-gB-OEP"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="SLr-QS-Jli"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="Cdz-OG-SS3"/>
+                                <include reference="SLr-QS-Jli"/>
+                            </mask>
+                        </variation>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="zr2-q9-8ob" firstAttribute="top" secondItem="Mtw-0q-sch" secondAttribute="bottom" constant="20" id="2nx-ue-Vrj"/>
-                    <constraint firstItem="zBl-MT-Kw3" firstAttribute="centerY" secondItem="ric-Va-A14" secondAttribute="centerY" multiplier="0.8" id="8BY-ta-1BN"/>
-                    <constraint firstItem="chK-CF-861" firstAttribute="centerY" secondItem="ric-Va-A14" secondAttribute="centerY" multiplier="0.5" id="9eQ-qF-dVo"/>
+                    <constraint firstItem="dsA-2y-Y72" firstAttribute="leading" secondItem="ric-Va-A14" secondAttribute="centerX" id="E6m-xX-Ln7"/>
                     <constraint firstItem="Z9w-eP-eSp" firstAttribute="width" secondItem="ric-Va-A14" secondAttribute="width" multiplier="0.8" id="E77-rk-I3U"/>
+                    <constraint firstItem="sOi-4v-Fhg" firstAttribute="top" secondItem="ric-Va-A14" secondAttribute="top" id="GAi-qb-z17"/>
+                    <constraint firstItem="dsA-2y-Y72" firstAttribute="top" secondItem="ric-Va-A14" secondAttribute="top" id="I1q-Fl-4Ah"/>
+                    <constraint firstItem="dsA-2y-Y72" firstAttribute="leading" secondItem="ric-Va-A14" secondAttribute="leading" id="JUl-q4-ohL"/>
+                    <constraint firstItem="sOi-4v-Fhg" firstAttribute="bottom" secondItem="ric-Va-A14" secondAttribute="centerY" id="LAb-QY-kLZ"/>
+                    <constraint firstAttribute="trailing" secondItem="sOi-4v-Fhg" secondAttribute="trailing" id="Lor-LF-oH4"/>
+                    <constraint firstItem="sOi-4v-Fhg" firstAttribute="trailing" secondItem="ric-Va-A14" secondAttribute="centerX" id="O3C-g5-U0n"/>
                     <constraint firstItem="Z9w-eP-eSp" firstAttribute="height" secondItem="ric-Va-A14" secondAttribute="height" multiplier="0.800078" id="Om2-Fb-0qS"/>
-                    <constraint firstItem="zr2-q9-8ob" firstAttribute="centerX" secondItem="Mtw-0q-sch" secondAttribute="centerX" id="RI5-1R-n29"/>
-                    <constraint firstItem="Mtw-0q-sch" firstAttribute="centerX" secondItem="ric-Va-A14" secondAttribute="centerX" id="WUP-23-K54"/>
-                    <constraint firstItem="Mtw-0q-sch" firstAttribute="centerY" secondItem="ric-Va-A14" secondAttribute="centerY" multiplier="1.2" id="aLZ-wX-7Bb"/>
+                    <constraint firstAttribute="bottom" secondItem="dsA-2y-Y72" secondAttribute="bottom" id="P5t-h5-agp"/>
+                    <constraint firstAttribute="bottom" secondItem="sOi-4v-Fhg" secondAttribute="bottom" id="UZA-Tk-yk1"/>
                     <constraint firstItem="Z9w-eP-eSp" firstAttribute="centerY" secondItem="ric-Va-A14" secondAttribute="centerY" id="cQa-H0-uVH"/>
                     <constraint firstItem="Z9w-eP-eSp" firstAttribute="centerX" secondItem="ric-Va-A14" secondAttribute="centerX" id="g1U-h8-XJg"/>
-                    <constraint firstItem="zBl-MT-Kw3" firstAttribute="centerX" secondItem="ric-Va-A14" secondAttribute="centerX" id="isS-1t-MaZ"/>
-                    <constraint firstItem="chK-CF-861" firstAttribute="centerX" secondItem="ric-Va-A14" secondAttribute="centerX" id="xK1-WF-yHv"/>
+                    <constraint firstAttribute="trailing" secondItem="dsA-2y-Y72" secondAttribute="trailing" id="hv4-zb-pYi"/>
+                    <constraint firstItem="sOi-4v-Fhg" firstAttribute="leading" secondItem="ric-Va-A14" secondAttribute="leading" id="lOo-Xb-mpx"/>
+                    <constraint firstItem="dsA-2y-Y72" firstAttribute="top" secondItem="ric-Va-A14" secondAttribute="centerY" id="lbJ-kd-rgm"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="O3C-g5-U0n"/>
+                        <exclude reference="UZA-Tk-yk1"/>
+                        <exclude reference="E6m-xX-Ln7"/>
+                        <exclude reference="I1q-Fl-4Ah"/>
+                    </mask>
+                </variation>
+                <variation key="heightClass=compact">
+                    <mask key="constraints">
+                        <include reference="O3C-g5-U0n"/>
+                        <exclude reference="LAb-QY-kLZ"/>
+                        <exclude reference="Lor-LF-oH4"/>
+                        <include reference="UZA-Tk-yk1"/>
+                        <include reference="E6m-xX-Ln7"/>
+                        <exclude reference="lbJ-kd-rgm"/>
+                        <exclude reference="JUl-q4-ohL"/>
+                        <include reference="I1q-Fl-4Ah"/>
+                    </mask>
+                </variation>
             </view>
             <connections>
                 <outlet property="starsDoubleView" destination="asw-ef-l4T" id="AST-QL-Y1U"/>
