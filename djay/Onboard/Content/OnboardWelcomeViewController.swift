@@ -46,7 +46,6 @@ class OnboardWelcomeViewController: OnboardContentViewController {
 				guard let pageWidth = view.parentViewController?.view.bounds.width,
 							let containerWidth = view.superview?.bounds.width
 				else { return defaultState }
-				
 				let factor = containerWidth / pageWidth
 
 				switch progress {

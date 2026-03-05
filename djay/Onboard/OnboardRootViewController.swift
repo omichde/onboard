@@ -40,20 +40,20 @@ class OnboardRootViewController: UIViewController {
 			progress: onboard.progressPublisher,
 			view: logoView,
 			keyframes: [0, 1, 2],
-			stateProvider: { progress, _ in
+			stateProvider: { progress, view in
 				switch progress {
-				case 0:
+				case 1:
+					return Animator.State(
+						transform: CGAffineTransform(translationX: 0, y: view.traitCollection.verticalSizeClass == .compact ? -60 : -140),
+						alpha: 1)
+				case 2:
+					return Animator.State(
+						transform: CGAffineTransform(translationX: 0, y: view.traitCollection.verticalSizeClass == .compact ? -60 : -140).scaledBy(x: 0.1, y: 0.1),
+						alpha: 0)
+				default:
 					return Animator.State(
 						transform: .identity,
 						alpha: 1)
-				case 1:
-					return Animator.State(
-						transform: CGAffineTransform(translationX: 0, y: -140),
-						alpha: 1)
-				default:
-					return Animator.State(
-						transform: CGAffineTransform(translationX: 0, y: -140).scaledBy(x: 0.1, y: 0.1),
-						alpha: 0)
 				}
 			}
 		)

@@ -31,16 +31,19 @@ class OnboardMixViewController: OnboardContentViewController {
 			keyframes: [0.5, 1, 1.5],
 			stateProvider: { progress, view in
 				let defaultState = Animator.State(transform: .identity, alpha: 1)
-				guard let pageWidth = view.superview?.bounds.width
+				guard let pageWidth = view.parentViewController?.view.bounds.width,
+							let containerWidth = view.superview?.bounds.width
 				else { return defaultState }
+				let factor = containerWidth / pageWidth
+
 				switch progress {
 				case let p where p < 1:
 					return Animator.State(
-						transform: CGAffineTransform(translationX: pageWidth * -0.5, y: 30).scaledBy(x: 0.1, y: 0.1),
+						transform: CGAffineTransform(translationX: containerWidth / factor * -0.5, y: 30).scaledBy(x: 0.1, y: 0.1),
 						alpha: 0)
 				case let p where p > 1:
 					return Animator.State(
-						transform: CGAffineTransform(translationX: pageWidth * 0.5, y: 30).scaledBy(x: 0.1, y: 0.1),
+						transform: CGAffineTransform(translationX: containerWidth / factor * 0.5, y: 30).scaledBy(x: 0.1, y: 0.1),
 						alpha: 0)
 				default:
 					return defaultState
@@ -53,20 +56,23 @@ class OnboardMixViewController: OnboardContentViewController {
 			view: mixLabel,
 			keyframes: [0.6, 1, 1.4],
 			stateProvider: { progress, view in
-				let pageWidth = view.superview?.bounds.width ?? view.bounds.width
+				let defaultState = Animator.State(transform: .identity, alpha: 1)
+				guard let pageWidth = view.parentViewController?.view.bounds.width,
+							let containerWidth = view.superview?.bounds.width
+				else { return defaultState }
+				let factor = containerWidth / pageWidth
+
 				switch progress {
-				case ..<1:
+				case let p where p < 1:
 					return Animator.State(
-						transform: CGAffineTransform(translationX: pageWidth * -0.4, y: 30).scaledBy(x: 0.1, y: 0.1),
+						transform: CGAffineTransform(translationX: containerWidth / factor * -0.4, y: 30).scaledBy(x: 0.1, y: 0.1),
 						alpha: 0)
-				case 1:
+				case let p where p > 1:
 					return Animator.State(
-						transform: .identity,
-						alpha: 1)
+						transform: CGAffineTransform(translationX: containerWidth / factor * 0.4, y: 30).scaledBy(x: 0.1, y: 0.1),
+						alpha: 0)
 				default:
-					return Animator.State(
-						transform: CGAffineTransform(translationX: pageWidth * 0.4, y: 30).scaledBy(x: 0.1, y: 0.1),
-						alpha: 0)
+					return defaultState
 				}
 			}
 		)
@@ -76,20 +82,23 @@ class OnboardMixViewController: OnboardContentViewController {
 			view: adaView,
 			keyframes: [0.7, 1, 1.3],
 			stateProvider: { progress, view in
-				let pageWidth = view.superview?.bounds.width ?? view.bounds.width
+				let defaultState = Animator.State(transform: .identity, alpha: 1)
+				guard let pageWidth = view.parentViewController?.view.bounds.width,
+							let containerWidth = view.superview?.bounds.width
+				else { return defaultState }
+				let factor = containerWidth / pageWidth
+
 				switch progress {
-				case ..<1:
+				case let p where p < 1:
 					return Animator.State(
-						transform: CGAffineTransform(translationX: pageWidth * -0.3, y: 30).scaledBy(x: 0.1, y: 0.1),
+						transform: CGAffineTransform(translationX: containerWidth / factor * -0.3, y: 30).scaledBy(x: 0.1, y: 0.1),
 						alpha: 0)
-				case 1:
+				case let p where p > 1:
 					return Animator.State(
-						transform: .identity,
-						alpha: 1)
+						transform: CGAffineTransform(translationX: containerWidth / factor * 0.3, y: 30).scaledBy(x: 0.1, y: 0.1),
+						alpha: 0)
 				default:
-					return Animator.State(
-						transform: CGAffineTransform(translationX: pageWidth * 0.3, y: 30).scaledBy(x: 0.1, y: 0.1),
-						alpha: 0)
+					return defaultState
 				}
 			}
 		)
