@@ -147,6 +147,9 @@
                 </variation>
             </view>
             <connections>
+                <outlet property="featuresLabel" destination="zr2-q9-8ob" id="Q4d-UA-SZS"/>
+                <outlet property="heroView" destination="zBl-MT-Kw3" id="aut-dN-RYR"/>
+                <outlet property="logoView" destination="chK-CF-861" id="p4F-8n-xbb"/>
                 <outlet property="starsDoubleView" destination="asw-ef-l4T" id="AST-QL-Y1U"/>
                 <outlet property="starsSingleView" destination="rZ8-NA-Glg" id="7zv-TE-QPx"/>
                 <outlet property="view" destination="ric-Va-A14" id="LO9-SN-MDn"/>
