@@ -9,7 +9,6 @@ import UIKit
 
 
 extension UIViewController {
-	
 	/// Embed `self` as a child view controller into a `container` view.
 	public func embed(into container: UIView) {
 		guard let parentViewController = container.parentViewController
@@ -31,12 +30,11 @@ extension UIViewController {
 		
 		self.didMove(toParent: parentViewController)
 	}
-
 }
 
 
-fileprivate extension UIView {
-	
+extension UIView {
+	/// Find the (next) parent view controller for a given view.
 	var parentViewController: UIViewController? {
 		if let nextResponder = self.next as? UIViewController {
 			return nextResponder
@@ -48,5 +46,4 @@ fileprivate extension UIView {
 			return nil
 		}
 	}
-
 }
