@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="y2w-1D-rUL">
-    <device id="retina6_12" orientation="landscape" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
@@ -14,20 +14,20 @@
             <objects>
                 <viewController id="y2w-1D-rUL" customClass="OnboardRootViewController" customModule="djay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RZQ-SZ-74a">
-                        <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Tph-sk-xvc">
-                                <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g2G-s8-qgE" userLabel="pages">
-                                <rect key="frame" x="59" y="59" width="734" height="279"/>
+                                <rect key="frame" x="0.0" y="118" width="393" height="666"/>
                             </view>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0VS-jK-9r8" userLabel="LogoContainer">
-                                <rect key="frame" x="59" y="59" width="367" height="279"/>
+                                <rect key="frame" x="0.0" y="118" width="393" height="666"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="djay" translatesAutoresizingMaskIntoConstraints="NO" id="GNm-7d-qnn">
-                                        <rect key="frame" x="77" y="79.666666666666657" width="213" height="64"/>
+                                        <rect key="frame" x="90" y="234.33333333333331" width="213" height="64"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="213" id="rE8-oz-dE8"/>
                                             <constraint firstAttribute="height" constant="64" id="xpZ-Dr-IC4"/>
@@ -41,12 +41,13 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpN-FR-D1d" userLabel="NavigationContainer">
-                                <rect key="frame" x="426" y="238" width="367" height="100"/>
+                                <rect key="frame" x="0.0" y="684" width="393" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="jUk-ld-O7C">
-                                        <rect key="frame" x="32" y="0.0" width="303" height="44"/>
+                                        <rect key="frame" x="32" y="0.0" width="329" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="x4M-ze-4Qc"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="zMO-23-WgM"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Continue"/>
@@ -55,7 +56,7 @@
                                         </connections>
                                     </button>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="bc1-Vq-5sO">
-                                        <rect key="frame" x="138.33333333333337" y="64" width="90.666666666666686" height="26"/>
+                                        <rect key="frame" x="151.33333333333334" y="64" width="90.666666666666657" height="26"/>
                                         <connections>
                                             <action selector="selectPage" destination="y2w-1D-rUL" eventType="valueChanged" id="vbs-5g-VzZ"/>
                                         </connections>
@@ -64,10 +65,11 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="bc1-Vq-5sO" firstAttribute="top" secondItem="jUk-ld-O7C" secondAttribute="bottom" constant="20" id="2ry-hg-4WT"/>
-                                    <constraint firstItem="jUk-ld-O7C" firstAttribute="leading" secondItem="bpN-FR-D1d" secondAttribute="leading" constant="32" id="6up-6j-YjP"/>
+                                    <constraint firstItem="jUk-ld-O7C" firstAttribute="leading" secondItem="bpN-FR-D1d" secondAttribute="leading" priority="750" constant="32" id="6up-6j-YjP"/>
                                     <constraint firstItem="bc1-Vq-5sO" firstAttribute="centerX" secondItem="bpN-FR-D1d" secondAttribute="centerX" id="Zly-Fs-sDB"/>
                                     <constraint firstItem="jUk-ld-O7C" firstAttribute="top" secondItem="bpN-FR-D1d" secondAttribute="top" id="aWP-ra-5fy"/>
-                                    <constraint firstAttribute="trailing" secondItem="jUk-ld-O7C" secondAttribute="trailing" constant="32" id="iCq-Tk-yP0"/>
+                                    <constraint firstItem="jUk-ld-O7C" firstAttribute="centerX" secondItem="bpN-FR-D1d" secondAttribute="centerX" id="eo5-uz-oXI"/>
+                                    <constraint firstAttribute="trailing" secondItem="jUk-ld-O7C" secondAttribute="trailing" priority="750" constant="32" id="iCq-Tk-yP0"/>
                                     <constraint firstAttribute="height" constant="100" id="lCx-Mp-hK2"/>
                                 </constraints>
                             </view>
@@ -102,8 +104,8 @@
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
-                                <include reference="IBy-Nk-Jsc"/>
                                 <exclude reference="lAc-RX-yPH"/>
+                                <include reference="IBy-Nk-Jsc"/>
                                 <include reference="Stp-Vq-kZb"/>
                                 <exclude reference="ceP-xp-kVu"/>
                             </mask>
