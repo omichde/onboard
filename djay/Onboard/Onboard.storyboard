@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="y2w-1D-rUL">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
@@ -14,20 +14,20 @@
             <objects>
                 <viewController id="y2w-1D-rUL" customClass="OnboardRootViewController" customModule="djay_onboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RZQ-SZ-74a">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Tph-sk-xvc">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
                             </imageView>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g2G-s8-qgE" userLabel="pages">
-                                <rect key="frame" x="0.0" y="118" width="393" height="666"/>
+                                <rect key="frame" x="59" y="59" width="734" height="279"/>
                             </view>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0VS-jK-9r8" userLabel="LogoContainer">
-                                <rect key="frame" x="0.0" y="118" width="393" height="666"/>
+                                <rect key="frame" x="59" y="59" width="734" height="279"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="djay" translatesAutoresizingMaskIntoConstraints="NO" id="GNm-7d-qnn">
-                                        <rect key="frame" x="90" y="234.33333333333331" width="213" height="64"/>
+                                        <rect key="frame" x="260.66666666666669" y="79.666666666666657" width="213" height="64"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="213" id="rE8-oz-dE8"/>
                                             <constraint firstAttribute="height" constant="64" id="xpZ-Dr-IC4"/>
@@ -40,11 +40,11 @@
                                     <constraint firstItem="GNm-7d-qnn" firstAttribute="centerX" secondItem="0VS-jK-9r8" secondAttribute="centerX" id="epI-ly-X14"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpN-FR-D1d">
-                                <rect key="frame" x="0.0" y="684" width="393" height="100"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpN-FR-D1d" userLabel="NavigationContainer">
+                                <rect key="frame" x="426" y="238" width="367" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="jUk-ld-O7C">
-                                        <rect key="frame" x="32" y="0.0" width="329" height="44"/>
+                                        <rect key="frame" x="32" y="0.0" width="303" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="x4M-ze-4Qc"/>
                                         </constraints>
@@ -55,7 +55,7 @@
                                         </connections>
                                     </button>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="bc1-Vq-5sO">
-                                        <rect key="frame" x="151.33333333333334" y="64" width="90.666666666666657" height="26"/>
+                                        <rect key="frame" x="138.33333333333337" y="64" width="90.666666666666686" height="26"/>
                                         <connections>
                                             <action selector="selectPage" destination="y2w-1D-rUL" eventType="valueChanged" id="vbs-5g-VzZ"/>
                                         </connections>
@@ -83,15 +83,27 @@
                             <constraint firstItem="0VS-jK-9r8" firstAttribute="top" secondItem="fZz-qq-LDW" secondAttribute="top" id="NjR-4h-cxr"/>
                             <constraint firstItem="Tph-sk-xvc" firstAttribute="leading" secondItem="RZQ-SZ-74a" secondAttribute="leading" id="Pkv-zm-dhA"/>
                             <constraint firstItem="0VS-jK-9r8" firstAttribute="top" secondItem="g2G-s8-qgE" secondAttribute="top" id="Roc-DA-P6g"/>
+                            <constraint firstItem="bpN-FR-D1d" firstAttribute="leading" secondItem="fZz-qq-LDW" secondAttribute="centerX" id="Stp-Vq-kZb"/>
                             <constraint firstItem="fZz-qq-LDW" firstAttribute="trailing" secondItem="bpN-FR-D1d" secondAttribute="trailing" id="Vvj-Xz-zOm"/>
                             <constraint firstItem="bpN-FR-D1d" firstAttribute="leading" secondItem="fZz-qq-LDW" secondAttribute="leading" id="ceP-xp-kVu"/>
                             <constraint firstItem="fZz-qq-LDW" firstAttribute="bottom" secondItem="bpN-FR-D1d" secondAttribute="bottom" id="dHA-qV-kYv"/>
-                            <constraint firstItem="0VS-jK-9r8" firstAttribute="leading" secondItem="bpN-FR-D1d" secondAttribute="leading" id="dfv-wk-id9"/>
+                            <constraint firstItem="0VS-jK-9r8" firstAttribute="leading" secondItem="fZz-qq-LDW" secondAttribute="leading" id="dfv-wk-id9"/>
                             <constraint firstItem="bpN-FR-D1d" firstAttribute="trailing" secondItem="0VS-jK-9r8" secondAttribute="trailing" id="lAc-RX-yPH"/>
-                            <constraint firstItem="g2G-s8-qgE" firstAttribute="leading" secondItem="bpN-FR-D1d" secondAttribute="leading" id="m4P-Uo-WIP"/>
+                            <constraint firstItem="g2G-s8-qgE" firstAttribute="leading" secondItem="fZz-qq-LDW" secondAttribute="leading" id="m4P-Uo-WIP"/>
                             <constraint firstAttribute="top" secondItem="Tph-sk-xvc" secondAttribute="top" id="nGx-u6-pDw"/>
                             <constraint firstAttribute="trailing" secondItem="Tph-sk-xvc" secondAttribute="trailing" id="sfb-HZ-wEg"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Stp-Vq-kZb"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="Stp-Vq-kZb"/>
+                                <exclude reference="ceP-xp-kVu"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="logoView" destination="GNm-7d-qnn" id="Ri7-rv-Vhe"/>
