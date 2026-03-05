@@ -17,7 +17,6 @@ extension UIViewController {
 		container.translatesAutoresizingMaskIntoConstraints = false
 		self.view.translatesAutoresizingMaskIntoConstraints = false
 		
-		self.view.frame = container.bounds
 		parentViewController.addChild(self)
 		container.addSubview(self.view)
 		

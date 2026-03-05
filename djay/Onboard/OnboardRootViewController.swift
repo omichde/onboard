@@ -49,7 +49,7 @@ class OnboardRootViewController: UIViewController {
 		
 		// Update the step button according to the current progress.
 		onboard.progressPublisher.combineLatest(onboard.skillPublisher)
-			.sink { [weak self] (progress, skill) in
+			.sink { [weak self] (progress, _) in
 				guard let self else { return }
 				
 				// Disable the Continue button if no skill is selected.
