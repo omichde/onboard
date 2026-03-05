@@ -25,7 +25,7 @@ extension Animator {
 		static let `default` = State()
 
 		// A lense to easily compose states.
-		func with(transform: CGAffineTransform? = nil, alpha: CGFloat? = 1) -> State {
+		func with(transform: CGAffineTransform? = nil, alpha: CGFloat? = nil) -> State {
 			State(transform: transform ?? self.transform, alpha: alpha ?? self.alpha)
 		}
 	}
