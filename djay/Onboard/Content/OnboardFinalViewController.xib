@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,36 +15,97 @@
                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <skView contentMode="scaleToFill" allowsTransparency="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rZ8-NA-Glg">
-                        <rect key="frame" x="39.333333333333343" y="110.33333333333331" width="314.33333333333326" height="681.33333333333348"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z9w-eP-eSp">
+                        <rect key="frame" x="39.333333333333343" y="85.333333333333314" width="314.33333333333326" height="681.66666666666674"/>
+                        <subviews>
+                            <skView contentMode="scaleToFill" allowsTransparency="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rZ8-NA-Glg">
+                                <rect key="frame" x="0.0" y="0.0" width="314.33333333333331" height="681.66666666666663"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </skView>
+                            <skView contentMode="scaleToFill" allowsTransparency="YES" translatesAutoresizingMaskIntoConstraints="NO" id="asw-ef-l4T">
+                                <rect key="frame" x="0.0" y="0.0" width="314.33333333333331" height="681.66666666666663"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </skView>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </skView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DJpro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtw-0q-sch">
-                        <rect key="frame" x="167.66666666666666" y="412.66666666666669" width="58" height="27"/>
+                        <constraints>
+                            <constraint firstItem="asw-ef-l4T" firstAttribute="centerX" secondItem="Z9w-eP-eSp" secondAttribute="centerX" id="1Us-xZ-vst"/>
+                            <constraint firstItem="rZ8-NA-Glg" firstAttribute="width" secondItem="Z9w-eP-eSp" secondAttribute="width" id="OA2-S0-Sst"/>
+                            <constraint firstItem="rZ8-NA-Glg" firstAttribute="centerX" secondItem="Z9w-eP-eSp" secondAttribute="centerX" id="UJX-cO-VW7"/>
+                            <constraint firstItem="asw-ef-l4T" firstAttribute="centerY" secondItem="Z9w-eP-eSp" secondAttribute="centerY" id="Urq-l9-TN5"/>
+                            <constraint firstItem="asw-ef-l4T" firstAttribute="height" secondItem="Z9w-eP-eSp" secondAttribute="height" id="X8A-FW-j3T"/>
+                            <constraint firstItem="rZ8-NA-Glg" firstAttribute="height" secondItem="Z9w-eP-eSp" secondAttribute="height" id="bqC-6t-OXh"/>
+                            <constraint firstItem="rZ8-NA-Glg" firstAttribute="centerY" secondItem="Z9w-eP-eSp" secondAttribute="centerY" id="oBX-S6-ouV"/>
+                            <constraint firstItem="asw-ef-l4T" firstAttribute="width" secondItem="Z9w-eP-eSp" secondAttribute="width" id="woe-hP-apc"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlock all PRO-Features" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtw-0q-sch">
+                        <rect key="frame" x="80.333333333333329" y="498" width="232.66666666666669" height="26.333333333333371"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                         <color key="textColor" name="primary"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hero-pro" translatesAutoresizingMaskIntoConstraints="NO" id="zBl-MT-Kw3">
+                        <rect key="frame" x="46.666666666666657" y="265.66666666666669" width="300" height="150"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="300" id="Qgx-T9-rHj"/>
+                            <constraint firstAttribute="height" constant="150" id="fdU-ya-0yM"/>
+                        </constraints>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-pro" translatesAutoresizingMaskIntoConstraints="NO" id="chK-CF-861">
+                        <rect key="frame" x="66.666666666666686" y="163" width="260" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="260" id="1Cr-E5-Gce"/>
+                            <constraint firstAttribute="height" constant="100" id="wyB-yb-4st"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zr2-q9-8ob">
+                        <rect key="frame" x="53" y="544.33333333333337" width="287.33333333333331" height="86.333333333333371"/>
+                        <string key="text">✓ Neural Mix™-Vocals, Instrumentals.
+✓ 1000+ Loops, FX and Visuals.
+✓ Automix - automated DJ-Mixes.
+✓ On iPhone, iPad, Mac.</string>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                        <color key="textColor" name="Text/Primary"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
-                <viewLayoutGuide key="safeArea" id="2pZ-PU-BNR"/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstItem="zr2-q9-8ob" firstAttribute="top" secondItem="Mtw-0q-sch" secondAttribute="bottom" constant="20" id="2nx-ue-Vrj"/>
+                    <constraint firstItem="zBl-MT-Kw3" firstAttribute="centerY" secondItem="ric-Va-A14" secondAttribute="centerY" multiplier="0.8" id="8BY-ta-1BN"/>
+                    <constraint firstItem="chK-CF-861" firstAttribute="centerY" secondItem="ric-Va-A14" secondAttribute="centerY" multiplier="0.5" id="9eQ-qF-dVo"/>
+                    <constraint firstItem="Z9w-eP-eSp" firstAttribute="width" secondItem="ric-Va-A14" secondAttribute="width" multiplier="0.8" id="E77-rk-I3U"/>
+                    <constraint firstItem="Z9w-eP-eSp" firstAttribute="height" secondItem="ric-Va-A14" secondAttribute="height" multiplier="0.800078" id="Om2-Fb-0qS"/>
+                    <constraint firstItem="zr2-q9-8ob" firstAttribute="centerX" secondItem="Mtw-0q-sch" secondAttribute="centerX" id="RI5-1R-n29"/>
                     <constraint firstItem="Mtw-0q-sch" firstAttribute="centerX" secondItem="ric-Va-A14" secondAttribute="centerX" id="WUP-23-K54"/>
-                    <constraint firstItem="Mtw-0q-sch" firstAttribute="centerY" secondItem="ric-Va-A14" secondAttribute="centerY" id="aLZ-wX-7Bb"/>
-                    <constraint firstItem="rZ8-NA-Glg" firstAttribute="centerX" secondItem="2pZ-PU-BNR" secondAttribute="centerX" id="r2o-29-ElH"/>
-                    <constraint firstItem="rZ8-NA-Glg" firstAttribute="centerY" secondItem="2pZ-PU-BNR" secondAttribute="centerY" id="sBm-fM-mXi"/>
-                    <constraint firstItem="rZ8-NA-Glg" firstAttribute="width" secondItem="ric-Va-A14" secondAttribute="width" multiplier="0.8" id="vb7-cJ-tFR"/>
-                    <constraint firstItem="rZ8-NA-Glg" firstAttribute="height" secondItem="ric-Va-A14" secondAttribute="height" multiplier="0.8" id="vxc-bV-OtH"/>
+                    <constraint firstItem="Mtw-0q-sch" firstAttribute="centerY" secondItem="ric-Va-A14" secondAttribute="centerY" multiplier="1.2" id="aLZ-wX-7Bb"/>
+                    <constraint firstItem="Z9w-eP-eSp" firstAttribute="centerY" secondItem="ric-Va-A14" secondAttribute="centerY" id="cQa-H0-uVH"/>
+                    <constraint firstItem="Z9w-eP-eSp" firstAttribute="centerX" secondItem="ric-Va-A14" secondAttribute="centerX" id="g1U-h8-XJg"/>
+                    <constraint firstItem="zBl-MT-Kw3" firstAttribute="centerX" secondItem="ric-Va-A14" secondAttribute="centerX" id="isS-1t-MaZ"/>
+                    <constraint firstItem="chK-CF-861" firstAttribute="centerX" secondItem="ric-Va-A14" secondAttribute="centerX" id="xK1-WF-yHv"/>
                 </constraints>
             </view>
             <connections>
-                <outlet property="starsView" destination="rZ8-NA-Glg" id="7zv-TE-QPx"/>
+                <outlet property="starsDoubleView" destination="asw-ef-l4T" id="AST-QL-Y1U"/>
+                <outlet property="starsSingleView" destination="rZ8-NA-Glg" id="7zv-TE-QPx"/>
                 <outlet property="view" destination="ric-Va-A14" id="LO9-SN-MDn"/>
             </connections>
             <point key="canvasLocation" x="852.67175572519079" y="150"/>
         </viewController>
+        <skView contentMode="scaleToFill" allowsTransparency="YES" id="WRL-cO-X1x">
+            <rect key="frame" x="0.0" y="0.0" width="314.33333333333326" height="681.33333333333337"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <point key="canvasLocation" x="492" y="-437"/>
+        </skView>
     </objects>
     <resources>
+        <image name="hero-pro" width="710" height="321"/>
+        <image name="logo-pro" width="550" height="112"/>
+        <namedColor name="Text/Primary">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
         <namedColor name="primary">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>

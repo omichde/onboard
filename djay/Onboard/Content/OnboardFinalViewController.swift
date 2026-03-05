@@ -12,21 +12,38 @@ import SpriteKit
 // The fourth screen contains the final content of the onboarding flow.
 class OnboardFinalViewController: OnboardContentViewController {
 	
-	@IBOutlet weak var starsView: SKView!
-	
-	private let starScene = SKScene(size: .zero)
-	private var starEmitter: SKEmitterNode?
+	@IBOutlet weak var starsSingleView: SKView!
+	@IBOutlet weak var starsDoubleView: SKView!
+
+	private let starSingleScene = SKScene(size: .zero)
+	private let starDoubleScene = SKScene(size: .zero)
+	private var starSingleEmitter: SKEmitterNode?
+	private var starDoubleEmitter: SKEmitterNode?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		starScene.backgroundColor = .clear
-		starScene.scaleMode = .resizeFill
-		starsView.presentScene(starScene)
+		starSingleScene.backgroundColor = .clear
+		starSingleScene.scaleMode = .resizeFill
+		starsSingleView.presentScene(starSingleScene)
 
-		guard let emitter = SKEmitterNode(fileNamed: "OnboardFinalStar") else { return }
-		starScene.addChild(emitter)
-		starEmitter = emitter
+		starDoubleScene.backgroundColor = .clear
+		starDoubleScene.scaleMode = .resizeFill
+		starsDoubleView.presentScene(starDoubleScene)
+
+		if let emitter = SKEmitterNode(fileNamed: "OnboardFinalStar"),
+			 let image = UIImage(named: "note-single") {
+			starSingleScene.addChild(emitter)
+			emitter.particleTexture = SKTexture(image: image)
+			starSingleEmitter = emitter
+		}
+		if let emitter = SKEmitterNode(fileNamed: "OnboardFinalStar"),
+			 let image = UIImage(named: "note-double") {
+			starDoubleScene.addChild(emitter)
+			emitter.particleTexture = SKTexture(image: image)
+			starDoubleEmitter = emitter
+		}
+
 		updateStarsLayout()
 	}
 
@@ -38,11 +55,17 @@ class OnboardFinalViewController: OnboardContentViewController {
 
 private extension OnboardFinalViewController {
 	func updateStarsLayout() {
-		let size = starsView.bounds.size
+		let size = starsSingleView.bounds.size
 		guard size.width > 0, size.height > 0 else { return }
 
-		starScene.size = size
-		starEmitter?.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
-		starEmitter?.particlePositionRange = CGVector(dx: size.width * 0.5, dy: size.height * 0.5)
+		starSingleScene.size = size
+		let position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
+		let range = CGVector(dx: size.width * 0.5, dy: size.height * 0.5)
+		starSingleEmitter?.position = position
+		starSingleEmitter?.particlePositionRange = range
+
+		starDoubleScene.size = size
+		starDoubleEmitter?.position = position
+		starDoubleEmitter?.particlePositionRange = range
 	}
 }
