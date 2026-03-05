@@ -5,95 +5,173 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <viewController id="CYn-O8-efM" customClass="OnboardSkillViewController" customModule="djay_onboard" customModuleProvider="target">
+        <viewController id="CYn-O8-efM" customClass="OnboardSkillViewController" customModule="djay" customModuleProvider="target">
             <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ric-Va-A14">
                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smile" translatesAutoresizingMaskIntoConstraints="NO" id="MH5-cQ-OlA">
-                        <rect key="frame" x="156.66666666666666" y="185.66666666666666" width="80" height="79.999999999999972"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="80" id="GKa-YS-1IR"/>
-                            <constraint firstAttribute="height" constant="80" id="gyh-a0-Of4"/>
-                        </constraints>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome DJ" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHG-fa-7mJ">
-                        <rect key="frame" x="104.33333333333333" y="340.33333333333331" width="184.66666666666669" height="40.666666666666686"/>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your DJ skill level?" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pLq-C6-Swz">
-                        <rect key="frame" x="74.000000000000014" y="381" width="245.33333333333337" height="26.333333333333314"/>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                        <color key="textColor" name="secondary"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="K6x-8X-8rx">
-                        <rect key="frame" x="32" y="447.33333333333326" width="329" height="168"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ROW-ad-HnO" userLabel="1st">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="426"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Jo-BG-DIJ">
-                                <rect key="frame" x="0.0" y="0.0" width="329" height="48"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smile" translatesAutoresizingMaskIntoConstraints="NO" id="MH5-cQ-OlA">
+                                <rect key="frame" x="156.66666666666666" y="173" width="80" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="M0m-Lj-Jkk"/>
+                                    <constraint firstAttribute="width" constant="80" id="GKa-YS-1IR"/>
+                                    <constraint firstAttribute="height" constant="80" id="gyh-a0-Of4"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="I'm new to DJing">
-                                    <color key="baseForegroundColor" name="primary"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="selectSkill:" destination="CYn-O8-efM" eventType="touchUpInside" id="290-Pn-vFb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9x-9V-2d1">
-                                <rect key="frame" x="0.0" y="60" width="329" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="4YE-cA-ZzT"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="I've used DJ apps before">
-                                    <color key="baseForegroundColor" name="primary"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="selectSkill:" destination="CYn-O8-efM" eventType="touchUpInside" id="5eE-oZ-vQr"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7h-zI-Lvd">
-                                <rect key="frame" x="0.0" y="120.00000000000006" width="329" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="IJw-UU-YeG"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="I'm a professional DJ">
-                                    <color key="baseForegroundColor" name="primary"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="selectSkill:" destination="CYn-O8-efM" eventType="touchUpInside" id="i4b-up-edo"/>
-                                </connections>
-                            </button>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome DJ" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHG-fa-7mJ">
+                                <rect key="frame" x="104.33333333333333" y="320.33333333333331" width="184.66666666666669" height="40.666666666666686"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your DJ skill level?" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pLq-C6-Swz">
+                                <rect key="frame" x="74.000000000000014" y="361" width="245.33333333333337" height="26.333333333333314"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <color key="textColor" name="secondary"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                    </stackView>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MH5-cQ-OlA" firstAttribute="centerY" secondItem="ROW-ad-HnO" secondAttribute="centerY" multiplier="0.7" id="2qd-PI-N20"/>
+                            <constraint firstItem="fHG-fa-7mJ" firstAttribute="centerY" secondItem="ROW-ad-HnO" secondAttribute="centerY" multiplier="1.1" id="Bds-SP-tSF"/>
+                            <constraint firstItem="pLq-C6-Swz" firstAttribute="centerX" secondItem="fHG-fa-7mJ" secondAttribute="centerX" id="CEh-b1-8nw"/>
+                            <constraint firstItem="MH5-cQ-OlA" firstAttribute="centerX" secondItem="ROW-ad-HnO" secondAttribute="centerX" id="RbQ-Om-E1m"/>
+                            <constraint firstItem="fHG-fa-7mJ" firstAttribute="centerX" secondItem="MH5-cQ-OlA" secondAttribute="centerX" id="VOV-O0-ph8"/>
+                            <constraint firstItem="fHG-fa-7mJ" firstAttribute="centerY" secondItem="ROW-ad-HnO" secondAttribute="centerY" multiplier="1.6" id="boS-bm-MYN"/>
+                            <constraint firstItem="pLq-C6-Swz" firstAttribute="firstBaseline" secondItem="fHG-fa-7mJ" secondAttribute="baseline" constant="29.333333333333332" symbolType="layoutAnchor" id="gSM-dE-gu8"/>
+                            <constraint firstItem="MH5-cQ-OlA" firstAttribute="centerY" secondItem="ROW-ad-HnO" secondAttribute="centerY" id="lqs-1e-K9u"/>
+                            <constraint firstItem="pLq-C6-Swz" firstAttribute="top" secondItem="fHG-fa-7mJ" secondAttribute="bottom" id="yO5-FN-uSr"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2qd-PI-N20"/>
+                                <exclude reference="Bds-SP-tSF"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="2qd-PI-N20"/>
+                                <exclude reference="lqs-1e-K9u"/>
+                                <include reference="Bds-SP-tSF"/>
+                                <exclude reference="boS-bm-MYN"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g0Q-hb-7l1" userLabel="2nd">
+                        <rect key="frame" x="0.0" y="426" width="393" height="426"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="K6x-8X-8rx">
+                                <rect key="frame" x="32" y="0.0" width="329" height="168"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Jo-BG-DIJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="329" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="M0m-Lj-Jkk"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="I'm new to DJing">
+                                            <color key="baseForegroundColor" name="primary"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="selectSkill:" destination="CYn-O8-efM" eventType="touchUpInside" id="290-Pn-vFb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9x-9V-2d1">
+                                        <rect key="frame" x="0.0" y="60" width="329" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="4YE-cA-ZzT"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="I've used DJ apps before">
+                                            <color key="baseForegroundColor" name="primary"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="selectSkill:" destination="CYn-O8-efM" eventType="touchUpInside" id="5eE-oZ-vQr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7h-zI-Lvd">
+                                        <rect key="frame" x="0.0" y="120" width="329" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="IJw-UU-YeG"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="I'm a professional DJ">
+                                            <color key="baseForegroundColor" name="primary"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="selectSkill:" destination="CYn-O8-efM" eventType="touchUpInside" id="i4b-up-edo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="K6x-8X-8rx" firstAttribute="centerY" secondItem="g0Q-hb-7l1" secondAttribute="centerY" multiplier="0.8" id="L8r-WX-SUN"/>
+                            <constraint firstAttribute="trailing" secondItem="K6x-8X-8rx" secondAttribute="trailing" constant="32" id="Xpa-Ak-5UR"/>
+                            <constraint firstItem="K6x-8X-8rx" firstAttribute="leading" secondItem="g0Q-hb-7l1" secondAttribute="leading" constant="32" id="gdT-QM-CgX"/>
+                            <constraint firstItem="K6x-8X-8rx" firstAttribute="top" secondItem="g0Q-hb-7l1" secondAttribute="top" id="o9G-LX-0Lc"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="L8r-WX-SUN"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="L8r-WX-SUN"/>
+                                <exclude reference="o9G-LX-0Lc"/>
+                            </mask>
+                        </variation>
+                    </view>
                 </subviews>
-                <viewLayoutGuide key="safeArea" id="2pZ-PU-BNR"/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="K6x-8X-8rx" firstAttribute="top" secondItem="pLq-C6-Swz" secondAttribute="bottom" constant="40" id="15X-0m-Yzx"/>
-                    <constraint firstItem="pLq-C6-Swz" firstAttribute="firstBaseline" secondItem="fHG-fa-7mJ" secondAttribute="baseline" constant="29.333333333333332" symbolType="layoutAnchor" id="6vu-hT-NcS"/>
-                    <constraint firstItem="fHG-fa-7mJ" firstAttribute="centerY" secondItem="2pZ-PU-BNR" secondAttribute="centerY" multiplier="0.8" id="MMC-ib-A1N"/>
-                    <constraint firstItem="fHG-fa-7mJ" firstAttribute="centerX" secondItem="2pZ-PU-BNR" secondAttribute="centerX" id="PDb-MG-K8g"/>
-                    <constraint firstItem="pLq-C6-Swz" firstAttribute="centerX" secondItem="2pZ-PU-BNR" secondAttribute="centerX" id="Qqx-B6-4ur"/>
-                    <constraint firstItem="2pZ-PU-BNR" firstAttribute="trailing" secondItem="K6x-8X-8rx" secondAttribute="trailing" constant="32" id="ZgZ-uA-Foh"/>
-                    <constraint firstItem="K6x-8X-8rx" firstAttribute="leading" secondItem="2pZ-PU-BNR" secondAttribute="leading" constant="32" id="dFc-L9-PzH"/>
-                    <constraint firstItem="MH5-cQ-OlA" firstAttribute="centerX" secondItem="2pZ-PU-BNR" secondAttribute="centerX" id="i5i-eH-4Bx"/>
-                    <constraint firstItem="MH5-cQ-OlA" firstAttribute="centerY" secondItem="2pZ-PU-BNR" secondAttribute="centerY" multiplier="0.5" id="zxF-gm-MVL"/>
+                    <constraint firstAttribute="trailing" secondItem="ROW-ad-HnO" secondAttribute="trailing" id="AiZ-ga-ZWK"/>
+                    <constraint firstItem="ROW-ad-HnO" firstAttribute="top" secondItem="ric-Va-A14" secondAttribute="top" id="Nhy-oM-loZ"/>
+                    <constraint firstItem="ROW-ad-HnO" firstAttribute="trailing" secondItem="ric-Va-A14" secondAttribute="centerX" id="Qcc-rf-z4m"/>
+                    <constraint firstItem="ROW-ad-HnO" firstAttribute="leading" secondItem="ric-Va-A14" secondAttribute="leading" id="V9F-es-ak3"/>
+                    <constraint firstAttribute="trailing" secondItem="g0Q-hb-7l1" secondAttribute="trailing" id="VUD-gc-S5m"/>
+                    <constraint firstItem="g0Q-hb-7l1" firstAttribute="top" secondItem="ric-Va-A14" secondAttribute="centerY" id="W6d-HQ-xxg"/>
+                    <constraint firstItem="g0Q-hb-7l1" firstAttribute="top" secondItem="ric-Va-A14" secondAttribute="top" id="WVw-0A-g5c"/>
+                    <constraint firstAttribute="bottom" secondItem="ROW-ad-HnO" secondAttribute="bottom" id="goP-TV-Qxs"/>
+                    <constraint firstAttribute="bottom" secondItem="g0Q-hb-7l1" secondAttribute="bottom" id="n9U-mY-CAB"/>
+                    <constraint firstItem="g0Q-hb-7l1" firstAttribute="leading" secondItem="ric-Va-A14" secondAttribute="centerX" id="sme-PE-jWS"/>
+                    <constraint firstItem="ROW-ad-HnO" firstAttribute="bottom" secondItem="ric-Va-A14" secondAttribute="centerY" id="tdu-7p-3Xo"/>
+                    <constraint firstItem="g0Q-hb-7l1" firstAttribute="leading" secondItem="ric-Va-A14" secondAttribute="leading" id="yMR-w2-QHL"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Qcc-rf-z4m"/>
+                        <exclude reference="goP-TV-Qxs"/>
+                        <exclude reference="sme-PE-jWS"/>
+                        <exclude reference="WVw-0A-g5c"/>
+                    </mask>
+                </variation>
+                <variation key="heightClass=compact">
+                    <mask key="constraints">
+                        <include reference="Qcc-rf-z4m"/>
+                        <exclude reference="tdu-7p-3Xo"/>
+                        <exclude reference="AiZ-ga-ZWK"/>
+                        <include reference="goP-TV-Qxs"/>
+                        <include reference="sme-PE-jWS"/>
+                        <exclude reference="W6d-HQ-xxg"/>
+                        <exclude reference="yMR-w2-QHL"/>
+                        <include reference="WVw-0A-g5c"/>
+                    </mask>
+                </variation>
             </view>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="newSkillButton" destination="0Jo-BG-DIJ" id="Bv5-jM-zC4"/>
                 <outlet property="normalSkillButton" destination="G9x-9V-2d1" id="8jX-MW-zll"/>

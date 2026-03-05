@@ -73,7 +73,7 @@ private extension OnboardSkillViewController {
 		var background = config.background
 		background.backgroundColor = UIColor(named: "Text/Quarternary")
 		background.strokeWidth = selected ? 2 : 0
-		background.strokeColor = selected ? UIColor(named: "AccentColor") : .clear
+		background.strokeColor = .accent
 		config.background = background
 		
 		button.configuration = config
