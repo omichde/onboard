@@ -30,10 +30,12 @@ extension OnboardStep {
 	/// The button title for each page.
 	var stepTitle: String {
 		switch self {
-		case .welcome, .mix, .skill:
+		case .welcome, .mix:
 			NSLocalizedString("Continue", comment: "Continue button in onboarding")
+		case .skill:
+			NSLocalizedString("Let's go", comment: "Skill confirmation button text in onboarding")
 		case .final:
-			NSLocalizedString("Let's go", comment: "Final button text in onboarding")
+			NSLocalizedString("Done", comment: "Final button in onboarding")
 		}
 	}
 }
