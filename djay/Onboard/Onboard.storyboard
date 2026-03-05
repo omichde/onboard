@@ -12,7 +12,7 @@
         <!--Onboard Root View Controller-->
         <scene sceneID="NEh-wA-A3k">
             <objects>
-                <viewController id="y2w-1D-rUL" customClass="OnboardRootViewController" customModule="djay_onboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="y2w-1D-rUL" customClass="OnboardRootViewController" customModule="djay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RZQ-SZ-74a">
                         <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,10 +24,10 @@
                                 <rect key="frame" x="59" y="59" width="734" height="279"/>
                             </view>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0VS-jK-9r8" userLabel="LogoContainer">
-                                <rect key="frame" x="59" y="59" width="734" height="279"/>
+                                <rect key="frame" x="59" y="59" width="367" height="279"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="djay" translatesAutoresizingMaskIntoConstraints="NO" id="GNm-7d-qnn">
-                                        <rect key="frame" x="260.66666666666669" y="79.666666666666657" width="213" height="64"/>
+                                        <rect key="frame" x="77" y="79.666666666666657" width="213" height="64"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="213" id="rE8-oz-dE8"/>
                                             <constraint firstAttribute="height" constant="64" id="xpZ-Dr-IC4"/>
@@ -79,6 +79,7 @@
                             <constraint firstItem="fZz-qq-LDW" firstAttribute="top" secondItem="g2G-s8-qgE" secondAttribute="top" id="53a-3V-f89"/>
                             <constraint firstItem="fZz-qq-LDW" firstAttribute="bottom" secondItem="0VS-jK-9r8" secondAttribute="bottom" id="6EO-FM-B2l"/>
                             <constraint firstItem="fZz-qq-LDW" firstAttribute="bottom" secondItem="g2G-s8-qgE" secondAttribute="bottom" id="HW7-8l-hlS"/>
+                            <constraint firstItem="0VS-jK-9r8" firstAttribute="trailing" secondItem="fZz-qq-LDW" secondAttribute="centerX" id="IBy-Nk-Jsc"/>
                             <constraint firstItem="Tph-sk-xvc" firstAttribute="bottom" secondItem="RZQ-SZ-74a" secondAttribute="bottom" id="IZa-E3-I5e"/>
                             <constraint firstItem="0VS-jK-9r8" firstAttribute="top" secondItem="fZz-qq-LDW" secondAttribute="top" id="NjR-4h-cxr"/>
                             <constraint firstItem="Tph-sk-xvc" firstAttribute="leading" secondItem="RZQ-SZ-74a" secondAttribute="leading" id="Pkv-zm-dhA"/>
@@ -88,18 +89,21 @@
                             <constraint firstItem="bpN-FR-D1d" firstAttribute="leading" secondItem="fZz-qq-LDW" secondAttribute="leading" id="ceP-xp-kVu"/>
                             <constraint firstItem="fZz-qq-LDW" firstAttribute="bottom" secondItem="bpN-FR-D1d" secondAttribute="bottom" id="dHA-qV-kYv"/>
                             <constraint firstItem="0VS-jK-9r8" firstAttribute="leading" secondItem="fZz-qq-LDW" secondAttribute="leading" id="dfv-wk-id9"/>
-                            <constraint firstItem="bpN-FR-D1d" firstAttribute="trailing" secondItem="0VS-jK-9r8" secondAttribute="trailing" id="lAc-RX-yPH"/>
+                            <constraint firstItem="fZz-qq-LDW" firstAttribute="trailing" secondItem="0VS-jK-9r8" secondAttribute="trailing" id="lAc-RX-yPH"/>
                             <constraint firstItem="g2G-s8-qgE" firstAttribute="leading" secondItem="fZz-qq-LDW" secondAttribute="leading" id="m4P-Uo-WIP"/>
                             <constraint firstAttribute="top" secondItem="Tph-sk-xvc" secondAttribute="top" id="nGx-u6-pDw"/>
                             <constraint firstAttribute="trailing" secondItem="Tph-sk-xvc" secondAttribute="trailing" id="sfb-HZ-wEg"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="IBy-Nk-Jsc"/>
                                 <exclude reference="Stp-Vq-kZb"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
+                                <include reference="IBy-Nk-Jsc"/>
+                                <exclude reference="lAc-RX-yPH"/>
                                 <include reference="Stp-Vq-kZb"/>
                                 <exclude reference="ceP-xp-kVu"/>
                             </mask>
