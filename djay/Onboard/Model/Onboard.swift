@@ -111,6 +111,10 @@ extension Onboard {
 	var isSkillBarrierActive: Bool {
 		skill == nil
 	}
+	
+	var canStepAhead: Bool {
+		!isSkillBarrierActive || step.rawValue < skillBarrierIndex
+	}
 }
 
 // MARK: private progress helper

@@ -53,12 +53,8 @@ class OnboardRootViewController: UIViewController {
 				guard let self else { return }
 				
 				// Disable the Continue button if no skill is selected.
-				let isEnabled = if !onboard.isSkillBarrierActive {
-					true
-				} else {
-					(progress <= Float(OnboardStep.mix.rawValue))
-				}
-				self.stepButton.isUserInteractionEnabled = isEnabled
+				let isEnabled = onboard.canStepAhead
+				self.stepButton.isUserInteractionEnabled = onboard.canStepAhead
 				self.stepButton.alpha = isEnabled ? 1 : 0.3
 			}
 			.store(in: &bag)
