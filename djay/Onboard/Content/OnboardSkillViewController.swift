@@ -69,11 +69,13 @@ private extension OnboardSkillViewController {
 		config.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16)
 		config.titleLineBreakMode = .byTruncatingTail
 		config.image = UIImage(named: selected ? "checkbox/on" : "checkbox/off")
-		
+		config.cornerStyle = .fixed
+
 		var background = config.background
 		background.backgroundColor = UIColor(named: "Text/Quarternary")
 		background.strokeWidth = selected ? 2 : 0
 		background.strokeColor = .accent
+		background.cornerRadius = 12
 		config.background = background
 		
 		button.configuration = config
